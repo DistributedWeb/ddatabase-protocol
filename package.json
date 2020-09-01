@@ -1,14 +1,14 @@
 {
-  "name": "hypercore-protocol",
-  "version": "7.1.1",
-  "description": "Stream that implements the hypercore protocol",
+  "name": "ddatabase-protocol",
+  "version": "4.0.0",
+  "description": "Stream that implements the ddatabase protocol",
   "main": "index.js",
   "dependencies": {
-    "hypercore-crypto": "^1.0.0",
+    "ddatabase-crypto": "git://github.com/DistributedWeb/ddatabase-crypto.git#8ae46173779823cafedec8159a11f0621d9186fe",
     "inspect-custom-symbol": "^1.1.0",
     "nanoguard": "^1.2.1",
     "pretty-hash": "^1.0.1",
-    "simple-hypercore-protocol": "^1.1.2",
+    "simple-ddatabase-protocol": "git://github.com/DistributedWeb/simple-ddatabase-protocol.git#1693e0b1cfea6e46192325963087d1fe5d9d222b",
     "streamx": "^2.1.0",
     "timeout-refresh": "^1.0.0"
   },
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mafintosh/hypercore-protocol.git"
+    "url": "https://github.com/distributedweb/ddatabase-protocol.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/hypercore-protocol/issues"
+    "url": "https://github.com/distributedweb/ddatabase-protocol/issues"
   },
-  "homepage": "https://github.com/mafintosh/hypercore-protocol"
+  "homepage": "https://github.com/distributedweb/ddatabase-protocol"
 }
