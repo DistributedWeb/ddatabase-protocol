@@ -422,7 +422,7 @@ Protocol.prototype._parseLength = function (data, start) {
 Protocol.prototype._sameKey = function () {
   if (!this.discoveryKey || !this.remoteDiscoveryKey) return true
   if (this.remoteDiscoveryKey.toString('hex') === this.discoveryKey.toString('hex')) return true
-  this.destroy(new Error('First shared hypercore must be the same'))
+  this.destroy(new Error('First shared ddatabase must be the same'))
   return false
 }
 
@@ -484,7 +484,7 @@ function encodeFeed (feed, id) {
 
 function discoveryKey (key) {
   var buf = bufferAlloc(32)
-  sodium.crypto_generichash(buf, bufferFrom('hypercore'), key)
+  sodium.crypto_generichash(buf, bufferFrom('ddatabase'), key)
   return buf
 }
 
