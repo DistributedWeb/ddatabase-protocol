@@ -1,23 +1,23 @@
-# hypercore-protocol
+# ddatabase-protocol
 
-Stream that implements the [hypercore](https://github.com/mafintosh/hypercore) protocol
+Stream that implements the [ddatabase](https://github.com/distributedweb/ddatabase) protocol
 
 ```
-npm install hypercore-protocol
+npm install ddatabase-protocol
 ```
 
-[![build status](https://travis-ci.org/mafintosh/hypercore-protocol.svg?branch=master)](https://travis-ci.org/mafintosh/hypercore-protocol)
+[![build status](https://travis-ci.org/mafintosh/ddatabase-protocol.svg?branch=master)](https://travis-ci.org/mafintosh/ddatabase-protocol)
 
-For detailed info on the messages sent on each channel see [simple-hypercore-protocol](https://github.com/mafintosh/simple-hypercore-protocol)
+For detailed info on the messages sent on each channel see [simple-ddatabase-protocol](https://github.com/distributedweb/simple-ddatabase-protocol)
 
-Note that the latest version of this is Hypercore Wire Protocol 7, which is not compatible with earlier versions.
+Note that the latest version of this is DDatabase Wire Protocol 7, which is not compatible with earlier versions.
 
 ## Usage
 
 ``` js
-const Protocol = require('hypercore-protocol')
+const Protocol = require('ddatabase-protocol')
 
-// create two streams with hypercore protocol
+// create two streams with ddatabase protocol
 const streamA = new Protocol(true) // true indicates this is the initiator
 const streamB = new Protocol(false) // false indicates this is not the initiator
 
@@ -79,7 +79,7 @@ This is enabled per default every timeout / 2 ms unless you disable timeout hand
 
 #### `stream.prefinalize`
 
-A [nanoguard](https://github.com/mafintosh/nanoguard) instance that is used to guard the final closing of the stream.
+A [nanoguard](https://github.com/distributedweb/nanoguard) instance that is used to guard the final closing of the stream.
 Internally this guard is ready'ed before the stream checks if all channels have been closed and the stream is finalised.
 Call wait/continue on this guard if need asynchrously add more channels and don't want to stream to finalise underneath you.
 
@@ -98,7 +98,7 @@ Use this in `ondiscoverykey` to check that the remote has the key corresponding 
 
 #### `const bool = Protocol.isProtocolStream(stream)`
 
-Static method to check if an object is a hypercore protocol stream.
+Static method to check if an object is a ddatabase protocol stream.
 
 #### `const keyPair = Protocol.keyPair()`
 
@@ -106,11 +106,11 @@ Static method to generate an static authentication key pair.
 
 #### `const channel = stream.open(key, handlers)`
 
-Signal the other end that you want to share a hypercore feed.
+Signal the other end that you want to share a ddatabase feed.
 
 The feed key will be hashed and sent as the "discovery key" which protects the feed key from being learned by a remote peer who does not already possess it. Also includes a cryptographic proof that the local possesses the feed key, which can be implicitly verified using the above `remoteVerified` api.
 
-[See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L7)
+[See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L7)
 
 The `handlers` is an object of functions for handling incoming messages and is described below.
 
@@ -125,7 +125,7 @@ This is automatically called after the prefinalise guard and all channels have b
 
 #### `feed.options(message)`
 
-Send an `options` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L13)
+Send an `options` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L13)
 
 #### `feed.handlers.onoptions(message)`
 
@@ -133,7 +133,7 @@ Called when a options message has been received.
 
 #### `feed.status(message)`
 
-Send an `status` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L20)
+Send an `status` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L20)
 
 #### `feed.handlers.onstatus(message)`
 
@@ -141,7 +141,7 @@ Called when a status message has been received.
 
 #### `feed.have(message)`
 
-Send a `have` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L26)
+Send a `have` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L26)
 
 #### `feed.handlers.onhave(message)`
 
@@ -149,7 +149,7 @@ Called when a `have` message has been received.
 
 #### `feed.unhave(message)`
 
-Send a `unhave` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L34)
+Send a `unhave` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L34)
 
 
 #### `feed.handlers.onunhave(message)`
@@ -158,7 +158,7 @@ Called when a `unhave` message has been received.
 
 #### `feed.want(want)`
 
-Send a `want` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L40)
+Send a `want` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L40)
 
 #### `feed.handlers.onwant(want)`
 
@@ -166,7 +166,7 @@ Called when a `want` message has been received.
 
 #### `feed.unwant(unwant)`
 
-Send a `unwant` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L46)
+Send a `unwant` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L46)
 
 #### `feed.handlers.onunwant(unwant)`
 
@@ -174,7 +174,7 @@ Called when a `unwant` message has been received.
 
 #### `feed.request(request)`
 
-Send a `request` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L52)
+Send a `request` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L52)
 
 
 #### `feed.handlers.onrequest(request)`
@@ -183,7 +183,7 @@ Called when a `request` message has been received.
 
 #### `feed.cancel(cancel)`
 
-Send a `cancel` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L60)
+Send a `cancel` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L60)
 
 #### `feed.handlers.oncancel(cancel)`
 
@@ -191,7 +191,7 @@ Called when a `cancel` message has been received.
 
 #### `feed.data(data)`
 
-Send a `data` message. [See the protobuf schema for more info on this messsage](https://github.com/mafintosh/simple-hypercore-protocol/blob/master/schema.proto#L67)
+Send a `data` message. [See the protobuf schema for more info on this messsage](https://github.com/distributedweb/simple-ddatabase-protocol/blob/master/schema.proto#L67)
 
 #### `feed.handlers.ondata(data)`
 
@@ -219,7 +219,7 @@ An alias to `stream.destroy`.
 
 ## Wire protocol
 
-The hypercore protocol consists of two phases.
+The ddatabase protocol consists of two phases.
 A handshake phase and a message exchange phage.
 
 For the handshake Noise is used with the XX pattern. Each Noise message is sent with varint framing.

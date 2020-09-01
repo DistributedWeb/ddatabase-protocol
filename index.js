@@ -1,5 +1,5 @@
-const SHP = require('simple-hypercore-protocol')
-const crypto = require('hypercore-crypto')
+const SHP = require('simple-ddatabase-protocol')
+const crypto = require('ddatabase-crypto')
 const timeout = require('timeout-refresh')
 const inspect = require('inspect-custom-symbol')
 const Nanoguard = require('nanoguard')
