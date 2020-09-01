@@ -1,17 +1,17 @@
-# hypercore-protocol
+# ddatabase-protocol
 
-Stream that implements the [hypercore](https://github.com/mafintosh/hypercore) protocol
+Stream that implements the [ddatabase](https://github.com/distributedweb/ddatabase) protocol
 
 ```
-npm install hypercore-protocol
+npm install ddatabase-protocol
 ```
 
-[![build status](https://travis-ci.org/mafintosh/hypercore-protocol.svg?branch=master)](https://travis-ci.org/mafintosh/hypercore-protocol)
+[![build status](https://travis-ci.org/mafintosh/ddatabase-protocol.svg?branch=master)](https://travis-ci.org/mafintosh/ddatabase-protocol)
 
 ## Usage
 
 ``` js
-var protocol = require('hypercore-protocol')
+var protocol = require('ddatabase-protocol')
 var stream = protocol()
 
 // open a feed specified by a 32 byte key
@@ -48,10 +48,10 @@ You can access the peer id using `p.id` and the remote peer id using `p.remoteId
 
 #### `var feed = stream.feed(key)`
 
-Signal the other end that you want to share a hypercore feed.
+Signal the other end that you want to share a ddatabase feed.
 
 You can use the same stream to share more than one BUT the first feed shared
-should be the same one. The key of the first feed is also used to encrypt the stream using [libsodium](https://github.com/mafintosh/sodium-native#crypto_stream_xorcipher-message-nonce-key).
+should be the same one. The key of the first feed is also used to encrypt the stream using [libsodium](https://github.com/distributedweb/sodium-native#crypto_stream_xorcipher-message-nonce-key).
 
 #### `stream.on('handshake')`
 
@@ -59,9 +59,9 @@ Emitted when a protocol handshake has been received. Afterwards you can check `.
 
 #### `stream.on('feed', discoveryKey)`
 
-Emitted when a remote is sharing a feed. `discoveryKey` is the hypercore discovery key of the feed they want to share.
+Emitted when a remote is sharing a feed. `discoveryKey` is the ddatabase discovery key of the feed they want to share.
 
-If you are sharing multiple hypercores on the same port you can use this event to wait for the remote peer to indicate which hypercore
+If you are sharing multiple hypercores on the same port you can use this event to wait for the remote peer to indicate which ddatabase
 they are interested in.
 
 #### `stream.destroy([error])`
@@ -150,7 +150,7 @@ An alias to `stream.destroy`.
 
 ## Wire protocol
 
-The hypercore protocol uses a basic varint length prefixed format to send messages over the wire.
+The ddatabase protocol uses a basic varint length prefixed format to send messages over the wire.
 
 All messages contains a header indicating the type and feed id, and a protobuf encoded payload.
 
