@@ -1,12 +1,12 @@
 # ddatabase-protocol
 
-Stream that implements the [ddatabase](https://github.com/ddatabase-protocol/ddatabase) protocol
+Stream that implements the [ddatabase](https://github.com/distributedweb/ddatabase) protocol
 
 ```
 npm install ddatabase-protocol
 ```
 
-[![build status](https://travis-ci.org/ddatabase-protocol/ddatabase-protocol.svg?branch=master)](https://travis-ci.org/ddatabase-protocol/ddatabase-protocol)
+[![build status](https://travis-ci.org/distributedweb/ddatabase-protocol.svg?branch=master)](https://travis-ci.org/ddatabase-protocol/ddatabase-protocol)
 
 For detailed info on the messages sent on each channel see [simple-ddatabase-protocol](https://github.com/distributedweb/simple-ddatabase-protocol)
 
