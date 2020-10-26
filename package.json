@@ -1,7 +1,7 @@
 {
   "name": "ddatabase-protocol",
   "version": "8.0.0",
-  "description": "Stream that implements the ddatabase protocol",
+  "description": "Protocol for streaming a dDatabase between dWeb peers.",
   "main": "index.js",
   "dependencies": {
     "abstract-extension": "^3.0.1",
@@ -25,7 +25,7 @@
     "type": "git",
     "url": "https://github.com/distributedweb/ddatabase-protocol.git"
   },
-  "author": "Mathias Buus (@mafintosh)",
+  "author": "Peeps Labs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/distributedweb/ddatabase-protocol/issues"
