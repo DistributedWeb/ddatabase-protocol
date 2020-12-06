@@ -10,7 +10,7 @@ npm install ddatabase-protocol
 
 For detailed info on the messages sent on each channel see [simple-ddatabase-protocol](https://github.com/distributedweb/simple-ddatabase-protocol)
 
-Note that the latest version of this is DDatabase Wire Protocol 7, which is not compatible with earlier versions.
+Note that the latest version of this is dDatabase Wire Protocol 7, which is not compatible with earlier versions.
 
 ## Usage
 
